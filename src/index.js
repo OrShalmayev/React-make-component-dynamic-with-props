@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import moment from 'moment';
+
 import './index.css';
+
+// Cpomponents
+import Avatar from './Avatar'; 
+import Author from './Author'; 
+import Time from './Time'; 
+import Message from './Message'; 
+import ReplyButton from './ReplyButton'; 
+import RetweetButton from './RetweetButton'; 
+import LikeButton from './LikeButton'; 
+import MoreOptionsButton from './MoreOptionsButton'; 
 
 function Tweet({tweet}){
     // const {tweet} = props;
@@ -20,77 +30,6 @@ function Tweet({tweet}){
                     </div>
                 </div>
             </div>
-        </>
-    );
-}
-function Time({time}){
-    return (
-        <>
-            <span className="time">{
-                moment(time).fromNow()
-            }</span>
-        </>
-    );
-}
-const ReplyButton = () => (
-    <>  
-        <i className="fas fa-reply reply-button"></i>
-    </> 
-);
-function getRetweetsCount(count){
-    if(count > 0 ){
-        return <span className="retweet-count">{count}</span>;
-    } 
-    return null;
-}
-const RetweetButton = ({count}) => (
-    <>  
-        <i className="fas fa-retweet retweet-button"></i>
-        {getRetweetsCount(count)}
-    </> 
-);
-const LikeButton = ({count}) => (
-    <>  
-        <i className="fas fa-heart heart-button"></i>
-        {count > 0 && <span className="like-count">{count}</span> }
-    </> 
-);
-const MoreOptionsButton = () => (
-    <>  
-        <i className="fas fa-ellipsis-h ellipsis-button"></i>
-    </> 
-);
-
-function Message({text}){
-    return (
-        <>
-            <div className="message">{text}</div>
-        </>
-    );
-}
-
-
-
-
-function Author({author}){
-    return (
-        <>
-            <span className="author">
-                <span className="name">{author.name}</span>
-                <span className="handle">{author.handle}</span>
-            </span>
-        </>
-    );
-}
-
-function Avatar({hash}){
-    return (
-        <>
-            <img
-                alt="avatar"
-                className="avatar"
-                src={`https://www.gravatar.com/avatar/${hash}`}
-            />
         </>
     );
 }
